@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SkillSwap | Community Skill Exchange Platform</title>
-  <meta name="description" content="Exchange skills with your neighbors. Teach guitar, learn gardening — no money needed. Time banking for your community." />
+  <meta name="description" content="Exchange skills with your neighbors. No money needed — just time and knowledge." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -17,8 +19,12 @@
   <!-- ===== TOP NAVBAR ===== -->
   <header class="topbar" id="top">
     <div class="topbar-left">
-      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
-        <span class="hamburger"></span>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
       </button>
       <a href="#" class="logo">Skill<span>Swap</span></a>
     </div>
@@ -26,548 +32,718 @@
     <div class="topbar-center">
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search skills, people, locations…" />
+        <input type="text" class="search-input" id="searchInput" placeholder="Search skills or people…" />
       </div>
     </div>
 
     <div class="topbar-right">
       <button class="icon-btn" id="notifBtn" aria-label="Notifications">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
         </svg>
         <span class="badge">3</span>
-        <!-- Notification dropdown -->
         <div class="notif-dropdown" id="notifDropdown">
           <p class="notif-title">Notifications</p>
-          <div class="notif-item">
-            <span class="notif-avatar">MJ</span>
-            <div><strong>Maria J.</strong> wants to swap <em>Yoga</em> for <em>Python tutoring</em></div>
-          </div>
-          <div class="notif-item">
-            <span class="notif-avatar">TK</span>
-            <div><strong>Tom K.</strong> accepted your <em>Guitar lesson</em> request</div>
-          </div>
-          <div class="notif-item">
-            <span class="notif-avatar">AI</span>
-            <div>You earned <strong>+2h</strong> in your Time Bank today 🎉</div>
-          </div>
+          <div class="notif-item"><span class="notif-av">MJ</span><span>Maria wants to swap <b>Yoga</b> for
+              <b>Python</b></span></div>
+          <div class="notif-item"><span class="notif-av teal">TK</span><span>Tom accepted your <b>Guitar</b>
+              request</span></div>
+          <div class="notif-item"><span class="notif-av rose">AI</span><span>You earned <b>+2h</b> in your Time
+              Bank</span></div>
         </div>
       </button>
-
       <button class="icon-btn" aria-label="Messages">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
-        <span class="badge msg-badge">5</span>
       </button>
-
       <div class="user-chip">
-        <div class="user-avatar-sm">IG</div>
-        <span class="user-name-sm">Irmak G.</span>
+        <div class="user-av">IG</div>
+        <span>Irmak G.</span>
       </div>
-
       <div class="auth-btns">
         <a href="#" class="btn btn-ghost">Log In</a>
-        <a href="#" class="btn btn-primary">Sign Up Free</a>
+        <a href="#" class="btn btn-primary">Sign Up</a>
       </div>
     </div>
   </header>
 
-  <!-- ===== LAYOUT WRAPPER ===== -->
+  <!-- ===== LAYOUT ===== -->
   <div class="app-layout">
 
-    <!-- ===== LEFT SIDEBAR ===== -->
+    <!-- LEFT SIDEBAR -->
     <aside class="sidebar-left" id="sidebarLeft">
       <nav class="sidebar-nav">
         <a href="#feed" class="nav-item active" data-section="feed">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <!-- house icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
           <span>Home Feed</span>
         </a>
         <a href="#skills" class="nav-item" data-section="skills">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.39a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <!-- sparkle / explore icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
           <span>Explore Skills</span>
         </a>
         <a href="#timebank" class="nav-item" data-section="timebank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
           <span>Time Bank</span>
         </a>
         <a href="#community" class="nav-item" data-section="community">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
           <span>Community</span>
         </a>
-        <a href="#members" class="nav-item" data-section="members">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span>Members</span>
-        </a>
-        <a href="#about" class="nav-item" data-section="about">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span>About</span>
-        </a>
         <a href="#team" class="nav-item" data-section="team">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
           <span>Project Team</span>
         </a>
-        <div class="sidebar-divider"></div>
-        <a href="#" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          <span>My Profile</span>
-        </a>
-        <a href="#" class="nav-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-          <span>Settings</span>
+        <a href="#about" class="nav-item" data-section="about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span>About</span>
         </a>
       </nav>
 
       <!-- Time Bank Widget -->
-      <div class="sidebar-widget timebank-widget">
+      <div class="tb-widget">
         <p class="widget-label">My Time Bank</p>
         <div class="tb-ring-wrap">
           <svg class="tb-ring" viewBox="0 0 80 80">
-            <circle class="tb-ring-bg" cx="40" cy="40" r="32" />
-            <circle class="tb-ring-fill" cx="40" cy="40" r="32" stroke-dasharray="200.96" stroke-dashoffset="70" />
+            <circle class="tb-bg" cx="40" cy="40" r="30" />
+            <circle class="tb-fill" cx="40" cy="40" r="30" stroke-dasharray="188.5" stroke-dashoffset="65" />
           </svg>
-          <div class="tb-ring-text">
-            <span class="tb-hours">8.5h</span>
-            <span class="tb-label">balance</span>
-          </div>
+          <div class="tb-center"><span class="tb-num">8.5h</span><span class="tb-sub">balance</span></div>
         </div>
-        <div class="tb-stats">
-          <div class="tb-stat"><span class="tb-stat-val green">+12h</span><span class="tb-stat-key">Given</span></div>
-          <div class="tb-stat"><span class="tb-stat-val amber">−3.5h</span><span class="tb-stat-key">Used</span></div>
-        </div>
-      </div>
-
-      <!-- Quick Stats -->
-      <div class="sidebar-widget quick-stats">
-        <p class="widget-label">Quick Stats</p>
-        <div class="qs-grid">
-          <div class="qs-item"><span class="qs-num">4</span><span class="qs-text">Skills Offered</span></div>
-          <div class="qs-item"><span class="qs-num">2</span><span class="qs-text">Learned</span></div>
-          <div class="qs-item"><span class="qs-num">★4.9</span><span class="qs-text">Rating</span></div>
-          <div class="qs-item"><span class="qs-num">18</span><span class="qs-text">Swaps Done</span></div>
+        <div class="tb-row">
+          <span class="tb-given">+12h given</span>
+          <span class="tb-used">−3.5h used</span>
         </div>
       </div>
     </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
+    <!-- MAIN CONTENT -->
     <main class="main-content">
 
-      <!-- Hero Banner (compact) -->
+      <!-- Hero Banner -->
       <section class="hero-banner reveal" id="top-hero">
-        <div class="hero-banner-inner">
+        <div class="hero-inner">
           <div class="hero-text">
-            <div class="hero-tag">🌱 Hyperlocal · Community-Powered</div>
-            <h1>Connect. Learn. <span class="grad-text">Grow Together.</span></h1>
+            <div class="hero-tag">Hyperlocal · Community-Powered</div>
+            <h1>Connect. Learn.<br /><span class="accent-text">Grow Together.</span></h1>
             <p>Exchange skills with your neighbors — no money needed. Teach what you know, learn what you need.</p>
             <div class="hero-cta">
               <a href="#skills" class="btn btn-primary">Browse Skills</a>
               <a href="#about" class="btn btn-outline">Our Vision</a>
             </div>
-            <div class="hero-pills">
-              <span class="pill">🎸 Guitar</span>
-              <span class="pill">🌿 Gardening</span>
-              <span class="pill">💻 Coding</span>
-              <span class="pill">🎨 Design</span>
-              <span class="pill">🧘 Yoga</span>
-              <span class="pill">🍳 Cooking</span>
-            </div>
           </div>
           <div class="hero-stats">
-            <div class="hstat-card"><span class="hstat-num">1,240+</span><span class="hstat-label">Members</span></div>
-            <div class="hstat-card"><span class="hstat-num">320+</span><span class="hstat-label">Skills Listed</span></div>
-            <div class="hstat-card"><span class="hstat-num">5,800h</span><span class="hstat-label">Hours Banked</span></div>
+            <div class="hstat"><span class="hstat-n">1,240+</span><span class="hstat-l">Members</span></div>
+            <div class="hstat"><span class="hstat-n">320+</span><span class="hstat-l">Skills</span></div>
+            <div class="hstat"><span class="hstat-n">5,800h</span><span class="hstat-l">Hours Banked</span></div>
           </div>
         </div>
       </section>
 
-      <!-- ===== SKILL FEED ===== -->
-      <section class="section feed-section" id="feed">
+      <!-- Skill Feed -->
+      <section class="section" id="feed">
         <div class="section-header">
           <h2 class="section-heading">Skill Feed</h2>
           <div class="feed-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="nearby">📍 Nearby</button>
-            <button class="filter-btn" data-filter="new">✨ New</button>
-            <button class="filter-btn" data-filter="popular">🔥 Popular</button>
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Nearby</button>
+            <button class="filter-btn">Popular</button>
           </div>
         </div>
 
-        <!-- Post card 1 -->
-        <div class="skill-card reveal">
-          <div class="skill-card-header">
-            <div class="sk-avatar">MJ</div>
-            <div class="sk-meta">
-              <span class="sk-name">Maria Johnson</span>
-              <span class="sk-loc">📍 Çankaya, Ankara · 2h ago</span>
+        <!-- Card 1 -->
+        <article class="skill-card reveal">
+          <div class="sc-head">
+            <div class="sc-av av-peach">MJ</div>
+            <div class="sc-meta">
+              <span class="sc-name">Maria Johnson</span>
+              <span class="sc-loc">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Çankaya, Ankara
+              </span>
             </div>
-            <span class="match-badge">96% match</span>
+            <span class="match-pill">96% match</span>
           </div>
-          <div class="skill-card-body">
-            <div class="swap-row">
-              <div class="swap-offer">
-                <span class="swap-label offer">Offers</span>
-                <span class="swap-skill">🎯 Yoga &amp; Meditation</span>
-              </div>
-              <div class="swap-arrow">⇄</div>
-              <div class="swap-need">
-                <span class="swap-label need">Needs</span>
-                <span class="swap-skill">💻 Python Basics</span>
-              </div>
+          <div class="swap-row">
+            <div class="swap-side">
+              <span class="swap-lbl offer">Offers</span>
+              <span class="swap-skill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                  <line x1="6" y1="1" x2="6" y2="4" />
+                  <line x1="10" y1="1" x2="10" y2="4" />
+                  <line x1="14" y1="1" x2="14" y2="4" />
+                </svg>
+                Yoga &amp; Meditation
+              </span>
             </div>
-            <p class="sk-desc">I can teach Hatha yoga and guided meditation — 5 years experience. Looking for someone to help me get started with Python for data analysis.</p>
-            <div class="sk-tags">
-              <span class="tag">Beginner-friendly</span>
-              <span class="tag">1h sessions</span>
-              <span class="tag">Flexible schedule</span>
+            <div class="swap-divider">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <polyline points="17 1 21 5 17 9" />
+                <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+                <polyline points="7 23 3 19 7 15" />
+                <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+              </svg>
+            </div>
+            <div class="swap-side">
+              <span class="swap-lbl need">Needs</span>
+              <span class="swap-skill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                Python Basics
+              </span>
             </div>
           </div>
-          <div class="skill-card-footer">
-            <span class="time-cost">⏱ 1h / session</span>
-            <div class="sk-actions">
-              <button class="btn-icon-sm">💬 Chat</button>
+          <p class="sc-desc">I can teach Hatha yoga and guided meditation — 5 years experience. Looking for someone to
+            help me get started with Python for data analysis.</p>
+          <div class="sc-footer">
+            <span class="time-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              1h / session
+            </span>
+            <div class="sc-actions">
+              <button class="btn-ghost-sm">Chat</button>
               <button class="btn btn-swap">Request Swap</button>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Post card 2 -->
-        <div class="skill-card reveal">
-          <div class="skill-card-header">
-            <div class="sk-avatar" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);">TK</div>
-            <div class="sk-meta">
-              <span class="sk-name">Tom Kowalski</span>
-              <span class="sk-loc">📍 Keçiören, Ankara · 5h ago</span>
+        <!-- Card 2 -->
+        <article class="skill-card reveal">
+          <div class="sc-head">
+            <div class="sc-av av-mint">TK</div>
+            <div class="sc-meta">
+              <span class="sc-name">Tom Kowalski</span>
+              <span class="sc-loc">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Keçiören, Ankara
+              </span>
             </div>
-            <span class="match-badge" style="background:rgba(59,130,246,0.15); color:#60a5fa; border-color: rgba(59,130,246,0.3);">88% match</span>
+            <span class="match-pill teal">88% match</span>
           </div>
-          <div class="skill-card-body">
-            <div class="swap-row">
-              <div class="swap-offer">
-                <span class="swap-label offer">Offers</span>
-                <span class="swap-skill">🎸 Guitar Lessons</span>
-              </div>
-              <div class="swap-arrow">⇄</div>
-              <div class="swap-need">
-                <span class="swap-label need">Needs</span>
-                <span class="swap-skill">🌿 Gardening Help</span>
-              </div>
+          <div class="swap-row">
+            <div class="swap-side">
+              <span class="swap-lbl offer">Offers</span>
+              <span class="swap-skill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
+                Guitar Lessons
+              </span>
             </div>
-            <p class="sk-desc">Classical and acoustic guitar, 10 years playing. Would love help setting up a vegetable garden in my backyard — soil prep, planting, the works!</p>
-            <div class="sk-tags">
-              <span class="tag">All levels</span>
-              <span class="tag">Evenings / weekends</span>
-              <span class="tag">In person</span>
+            <div class="swap-divider">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <polyline points="17 1 21 5 17 9" />
+                <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+                <polyline points="7 23 3 19 7 15" />
+                <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+              </svg>
+            </div>
+            <div class="swap-side">
+              <span class="swap-lbl need">Needs</span>
+              <span class="swap-skill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Gardening Help
+              </span>
             </div>
           </div>
-          <div class="skill-card-footer">
-            <span class="time-cost">⏱ 1.5h / session</span>
-            <div class="sk-actions">
-              <button class="btn-icon-sm">💬 Chat</button>
+          <p class="sc-desc">Classical and acoustic guitar, 10 years playing. Looking for help setting up a vegetable
+            garden — soil prep, planting, the works!</p>
+          <div class="sc-footer">
+            <span class="time-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              1.5h / session
+            </span>
+            <div class="sc-actions">
+              <button class="btn-ghost-sm">Chat</button>
               <button class="btn btn-swap">Request Swap</button>
             </div>
           </div>
-        </div>
-
-        <!-- Post card 3 -->
-        <div class="skill-card reveal">
-          <div class="skill-card-header">
-            <div class="sk-avatar" style="background: linear-gradient(135deg, #10b981, #0891b2);">SA</div>
-            <div class="sk-meta">
-              <span class="sk-name">Sara Ahmed</span>
-              <span class="sk-loc">📍 Yenimahalle, Ankara · 1d ago</span>
-            </div>
-            <span class="match-badge" style="background:rgba(16,185,129,0.15); color:#34d399; border-color: rgba(16,185,129,0.3);">92% match</span>
-          </div>
-          <div class="skill-card-body">
-            <div class="swap-row">
-              <div class="swap-offer">
-                <span class="swap-label offer">Offers</span>
-                <span class="swap-skill">🍳 Turkish Cooking</span>
-              </div>
-              <div class="swap-arrow">⇄</div>
-              <div class="swap-need">
-                <span class="swap-label need">Needs</span>
-                <span class="swap-skill">🎨 Graphic Design</span>
-              </div>
-            </div>
-            <p class="sk-desc">Traditional Turkish cuisine — meze, pastries, main dishes. Looking for someone to help design a logo &amp; social media templates for my small catering business.</p>
-            <div class="sk-tags">
-              <span class="tag">Home kitchen</span>
-              <span class="tag">Weekend mornings</span>
-              <span class="tag">Groups welcome</span>
-            </div>
-          </div>
-          <div class="skill-card-footer">
-            <span class="time-cost">⏱ 2h / session</span>
-            <div class="sk-actions">
-              <button class="btn-icon-sm">💬 Chat</button>
-              <button class="btn btn-swap">Request Swap</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Active Swap Status -->
-        <div class="active-swap-strip reveal">
-          <h3 class="strip-heading">⚡ Active Swaps In Progress</h3>
-          <div class="active-swaps-row">
-            <div class="active-swap-card">
-              <div class="as-avatars"><span class="as-av">IG</span><span class="as-av" style="margin-left:-10px;background:linear-gradient(135deg,#f59e0b,#ef4444);">TK</span></div>
-              <div class="as-info">
-                <span class="as-title">Guitar ↔ Gardening</span>
-                <span class="as-sub">Session 2 of 3 · Next: Sat Feb 22</span>
-              </div>
-              <span class="as-status in-progress">In Progress</span>
-            </div>
-            <div class="active-swap-card">
-              <div class="as-avatars"><span class="as-av">IG</span><span class="as-av" style="margin-left:-10px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);">MJ</span></div>
-              <div class="as-info">
-                <span class="as-title">Yoga ↔ Python</span>
-                <span class="as-sub">Session 1 of 4 · Next: Sun Feb 23</span>
-              </div>
-              <span class="as-status scheduled">Scheduled</span>
-            </div>
-          </div>
-        </div>
+        </article>
       </section>
 
-      <!-- ===== EXPLORE SKILLS ===== -->
+      <!-- Explore Skills -->
       <section class="section" id="skills">
         <h2 class="section-heading reveal">Explore Skills</h2>
-        <div class="skills-category-grid reveal">
+        <div class="cat-grid reveal">
           <div class="cat-card">
-            <span class="cat-icon">🎵</span><span class="cat-name">Music</span><span class="cat-count">48 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+            </div>
+            <span class="cat-name">Music</span>
+            <span class="cat-count">48 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">💻</span><span class="cat-name">Tech & Coding</span><span class="cat-count">63 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <span class="cat-name">Tech &amp; Coding</span>
+            <span class="cat-count">63 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">🌿</span><span class="cat-name">Gardening</span><span class="cat-count">31 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <span class="cat-name">Gardening</span>
+            <span class="cat-count">31 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">🎨</span><span class="cat-name">Art & Design</span><span class="cat-count">55 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <line x1="9" y1="9" x2="9.01" y2="9" />
+                <line x1="15" y1="9" x2="15.01" y2="9" />
+              </svg>
+            </div>
+            <span class="cat-name">Art &amp; Design</span>
+            <span class="cat-count">55 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">🧘</span><span class="cat-name">Wellness</span><span class="cat-count">29 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
+            <span class="cat-name">Wellness</span>
+            <span class="cat-count">29 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">🍳</span><span class="cat-name">Cooking</span><span class="cat-count">42 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+              </svg>
+            </div>
+            <span class="cat-name">Cooking</span>
+            <span class="cat-count">42 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">📚</span><span class="cat-name">Tutoring</span><span class="cat-count">38 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+            </div>
+            <span class="cat-name">Tutoring</span>
+            <span class="cat-count">38 listings</span>
           </div>
           <div class="cat-card">
-            <span class="cat-icon">🔧</span><span class="cat-name">Repairs & DIY</span><span class="cat-count">27 listings</span>
+            <div class="cat-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <span class="cat-name">Repairs</span>
+            <span class="cat-count">27 listings</span>
           </div>
         </div>
       </section>
 
-      <!-- ===== TIME BANK ===== -->
-      <section class="section alt-bg" id="timebank">
-        <h2 class="section-heading reveal">⏱ Time Banking</h2>
-        <p class="section-sub reveal">Every hour you give earns one hour you can spend. Community service hours, tracked transparently.</p>
-        <div class="tb-explainer reveal">
+      <!-- Time Bank -->
+      <section class="section alt-section" id="timebank">
+        <h2 class="section-heading reveal">Time Banking</h2>
+        <p class="section-sub reveal">Every hour you give earns one hour you can spend.</p>
+        <div class="tb-steps reveal">
           <div class="tb-step">
             <div class="tb-step-num">1</div>
-            <div class="tb-step-text"><strong>Offer your skill</strong><br/>Post what you can teach or do</div>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              class="tb-step-icon">
+              <circle cx="24" cy="16" r="8" />
+              <path d="M8 40c0-8.84 7.16-16 16-16s16 7.16 16 16" />
+            </svg>
+            <strong>Offer Your Skill</strong>
+            <p>Post what you can teach or do</p>
           </div>
-          <div class="tb-arrow-h">→</div>
+          <div class="tb-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
           <div class="tb-step">
             <div class="tb-step-num">2</div>
-            <div class="tb-step-text"><strong>Complete a swap</strong><br/>Meet, help, and verify the session</div>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              class="tb-step-icon">
+              <path d="M40 24c0 8.84-7.16 16-16 16S8 32.84 8 24" />
+              <path d="M8 24c0-8.84 7.16-16 16-16" />
+              <polyline points="32 8 40 8 40 16" />
+            </svg>
+            <strong>Complete a Swap</strong>
+            <p>Meet, teach, and verify the session</p>
           </div>
-          <div class="tb-arrow-h">→</div>
+          <div class="tb-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
           <div class="tb-step">
             <div class="tb-step-num">3</div>
-            <div class="tb-step-text"><strong>Earn hours</strong><br/>Hours credited to your Time Bank</div>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              class="tb-step-icon">
+              <circle cx="24" cy="24" r="16" />
+              <polyline points="24 14 24 24 30 28" />
+            </svg>
+            <strong>Earn Hours</strong>
+            <p>Hours credited to your Time Bank</p>
           </div>
-          <div class="tb-arrow-h">→</div>
+          <div class="tb-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
           <div class="tb-step">
             <div class="tb-step-num">4</div>
-            <div class="tb-step-text"><strong>Spend &amp; learn</strong><br/>Use hours to access any other skill</div>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              class="tb-step-icon">
+              <polyline points="20 12 12 12 12 40 36 40 36 28" />
+              <polyline points="28 8 36 8 36 16" />
+              <line x1="20" y1="24" x2="32" y2="12" />
+            </svg>
+            <strong>Spend &amp; Learn</strong>
+            <p>Use hours to access any skill</p>
           </div>
         </div>
       </section>
 
-      <!-- ===== COMMUNITY ===== -->
+      <!-- Community -->
       <section class="section" id="community">
         <h2 class="section-heading reveal">Community</h2>
-        <div class="community-grid reveal">
-          <div class="community-card glass">
-            <span class="comm-icon">🏘️</span>
+        <div class="comm-grid reveal">
+          <div class="comm-card">
+            <div class="comm-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
             <h3>Neighborhood Circles</h3>
-            <p>Join or create a local circle for your district. Organize events, share resources, and build connections with people nearby.</p>
-            <a href="#" class="link-btn">Join a Circle →</a>
+            <p>Join your local circle to organize events and share resources with nearby neighbors.</p>
+            <a href="#" class="link-btn">Join a Circle</a>
           </div>
-          <div class="community-card glass">
-            <span class="comm-icon">📅</span>
+          <div class="comm-card">
+            <div class="comm-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
             <h3>Community Events</h3>
-            <p>Skill Fairs, Group Workshops, and Swap Meetups — organized by the community, for the community.</p>
-            <a href="#" class="link-btn">See Events →</a>
+            <p>Skill Fairs, Group Workshops, and Swap Meetups — organized by the community.</p>
+            <a href="#" class="link-btn">See Events</a>
           </div>
-          <div class="community-card glass">
-            <span class="comm-icon">📣</span>
+          <div class="comm-card">
+            <div class="comm-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0" />
+              </svg>
+            </div>
             <h3>Announcements</h3>
-            <p>Stay up-to-date with new feature launches, community milestones, and neighborhood news.</p>
-            <a href="#" class="link-btn">Read More →</a>
+            <p>Stay up-to-date with new features, community milestones, and neighborhood news.</p>
+            <a href="#" class="link-btn">Read More</a>
           </div>
         </div>
       </section>
 
-      <!-- ===== MEMBERS ===== -->
-      <section class="section alt-bg" id="members">
-        <h2 class="section-heading reveal">Meet the Members</h2>
-        <div class="members-grid reveal">
-          <div class="member-card glass">
-            <div class="member-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">MJ</div>
-            <span class="member-name">Maria J.</span>
-            <span class="member-skill">Yoga · Python</span>
-            <div class="member-rating">★★★★★ <span>4.9</span></div>
-            <span class="member-hours">12h banked</span>
-          </div>
-          <div class="member-card glass">
-            <div class="member-avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">TK</div>
-            <span class="member-name">Tom K.</span>
-            <span class="member-skill">Guitar · Gardening</span>
-            <div class="member-rating">★★★★★ <span>5.0</span></div>
-            <span class="member-hours">8h banked</span>
-          </div>
-          <div class="member-card glass">
-            <div class="member-avatar" style="background: linear-gradient(135deg,#10b981,#0891b2)">SA</div>
-            <span class="member-name">Sara A.</span>
-            <span class="member-skill">Cooking · Design</span>
-            <div class="member-rating">★★★★☆ <span>4.7</span></div>
-            <span class="member-hours">15h banked</span>
-          </div>
-          <div class="member-card glass">
-            <div class="member-avatar" style="background: linear-gradient(135deg,#8b5cf6,#ec4899)">KG</div>
-            <span class="member-name">Kerim G.</span>
-            <span class="member-skill">Coding · Math</span>
-            <div class="member-rating">★★★★★ <span>4.8</span></div>
-            <span class="member-hours">20h banked</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== ABOUT ===== -->
+      <!-- About -->
       <section class="section" id="about">
         <h2 class="section-heading reveal">The Vision</h2>
         <div class="about-grid reveal">
-          <div class="glass about-card">
-            <span class="about-icon">🤝</span>
+          <div class="about-card">
+            <div class="about-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
             <h3>Community Service</h3>
-            <p>We believe in building stronger community connections. SkillSwap helps people access services they can't afford by leveraging the collective knowledge of their neighborhood.</p>
+            <p>SkillSwap helps people access services they can't afford by leveraging the collective knowledge of their
+              neighborhood.</p>
           </div>
-          <div class="glass about-card">
-            <span class="about-icon">⏱</span>
+          <div class="about-card">
+            <div class="about-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
             <h3>Time Banking</h3>
-            <p>Our unique "time banking" feature tracks community service hours. Someone teaches you guitar, you help them with gardening — a mutual exchange of real value.</p>
+            <p>Our unique time banking feature tracks community service hours. An hour of your skill equals an hour of
+              someone else's.</p>
           </div>
-          <div class="glass about-card">
-            <span class="about-icon">🛡️</span>
+          <div class="about-card">
+            <div class="about-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
             <h3>Reputation System</h3>
-            <p>Every swap builds trust. Our review and rating system ensures quality and accountability, creating a safe space for community exchanges.</p>
+            <p>Every swap builds trust. Our review and rating system ensures quality and creates a safe space for
+              community exchanges.</p>
           </div>
         </div>
 
-        <!-- Features Grid -->
-        <h2 class="section-heading reveal" style="margin-top:5rem;">Platform Features</h2>
+        <!-- Features -->
+        <h2 class="section-heading reveal" style="margin-top:3rem;">Platform Features</h2>
         <div class="features-grid reveal">
-          <div class="feature-pill">
-            <span class="feat-icon">🔗</span>
-            <div><strong>Smart Matching</strong><p>Algorithm finds ideal skill pairs</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <polyline points="17 1 21 5 17 9" />
+              <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+              <polyline points="7 23 3 19 7 15" />
+              <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+            </svg>
+            <div><strong>Smart Matching</strong>
+              <p>Algorithm finds ideal skill pairs</p>
+            </div>
           </div>
-          <div class="feature-pill">
-            <span class="feat-icon">📅</span>
-            <div><strong>Scheduling</strong><p>Integrated calendar for swaps</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <div><strong>Scheduling</strong>
+              <p>Integrated calendar for swaps</p>
+            </div>
           </div>
-          <div class="feature-pill">
-            <span class="feat-icon">⭐</span>
-            <div><strong>Reputation</strong><p>Trust-based review system</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+            <div><strong>Reputation</strong>
+              <p>Trust-based review system</p>
+            </div>
           </div>
-          <div class="feature-pill">
-            <span class="feat-icon">🏦</span>
-            <div><strong>Time Bank</strong><p>Track community hours earned</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <div><strong>Time Bank</strong>
+              <p>Track community hours earned</p>
+            </div>
           </div>
-          <div class="feature-pill">
-            <span class="feat-icon">📍</span>
-            <div><strong>Hyperlocal</strong><p>Neighborhood-level connections</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <div><strong>Hyperlocal</strong>
+              <p>Neighborhood-level connections</p>
+            </div>
           </div>
-          <div class="feature-pill">
-            <span class="feat-icon">🔔</span>
-            <div><strong>Notifications</strong><p>Real-time swap updates</p></div>
+          <div class="feat-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0" />
+            </svg>
+            <div><strong>Notifications</strong>
+              <p>Real-time swap updates</p>
+            </div>
           </div>
         </div>
 
-        <!-- Docs Section -->
-        <h2 class="section-heading reveal" style="margin-top:5rem;">Project Documentation</h2>
-        <div class="docs-grid reveal">
-          <a href="#" class="doc-card glass">
-            <span class="doc-icon">📋</span>
-            <div class="doc-info">
-              <strong>Project Specifications Report</strong>
-              <span>View Document →</span>
+        <!-- Docs -->
+        <h2 class="section-heading reveal" style="margin-top:3rem;">Project Documentation</h2>
+        <div class="docs-row reveal">
+          <a href="#" class="doc-card">
+            <div class="doc-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
             </div>
+            <div><strong>Specifications Report</strong><span>View Document</span></div>
           </a>
-          <a href="#" class="doc-card glass">
-            <span class="doc-icon">📄</span>
-            <div class="doc-info">
-              <strong>Project Analysis Report</strong>
-              <span>View Document →</span>
+          <a href="#" class="doc-card">
+            <div class="doc-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
             </div>
+            <div><strong>Analysis Report</strong><span>View Document</span></div>
           </a>
-          <a href="#" class="doc-card glass">
-            <span class="doc-icon">⚙️</span>
-            <div class="doc-info">
-              <strong>High Level Design Report</strong>
-              <span>View Document →</span>
+          <a href="#" class="doc-card">
+            <div class="doc-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+              </svg>
             </div>
+            <div><strong>High Level Design</strong><span>View Document</span></div>
           </a>
         </div>
       </section>
 
-      <!-- ===== TEAM ===== -->
-      <section class="section alt-bg" id="team">
+      <!-- Team -->
+      <section class="section" id="team">
         <h2 class="section-heading reveal">Advisors &amp; Jury</h2>
         <div class="advisors-row reveal">
-          <div class="advisor-chip glass">
-            <div class="advisor-av">DC</div>
-            <div><strong>Deniz Cantürk</strong><span>Project Advisor</span></div>
+
+          <div class="advisor-card">
+            <div class="person-photo">
+              <img src="https://seng.tedu.edu.tr/sites/default/files/people/07.DCanturk.jpg" alt="Deniz Cantürk"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="photo-fallback" style="display:none">DC</div>
+            </div>
+            <strong>Deniz Cantürk</strong>
+            <span>Project Advisor</span>
+            <span class="role-tag">Asst. Professor</span>
           </div>
-          <div class="advisor-chip glass">
-            <div class="advisor-av">FA</div>
-            <div><strong>Fırat Akba</strong><span>Jury Member</span></div>
+
+          <div class="advisor-card">
+            <div class="person-photo">
+              <img src="https://seng.tedu.edu.tr/sites/default/files/people/FiratAkba.jpg" alt="Fırat Akba"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="photo-fallback" style="display:none">FA</div>
+            </div>
+            <strong>Fırat Akba</strong>
+            <span>Jury Member</span>
+            <span class="role-tag">Asst. Professor</span>
           </div>
-          <div class="advisor-chip glass">
-            <div class="advisor-av">TD</div>
-            <div><strong>Tansel Dökeroğlu</strong><span>Jury Member</span></div>
+
+          <div class="advisor-card">
+            <div class="person-photo">
+              <img src="https://seng.tedu.edu.tr/sites/default/files/people/TanselDokeroglu.jpg" alt="Tansel Dökeroğlu"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="photo-fallback" style="display:none">TD</div>
+            </div>
+            <strong>Tansel Dökeroğlu</strong>
+            <span>Jury Member</span>
+            <span class="role-tag">Professor &amp; Head of Dept.</span>
           </div>
-          <div class="advisor-chip glass">
-            <div class="advisor-av">EU</div>
-            <div><strong>Eren Ulu</strong><span>Jury Member</span></div>
+
+          <div class="advisor-card">
+            <div class="person-photo">
+              <img src="https://seng.tedu.edu.tr/sites/default/files/people/ErenUlu.jpg" alt="Eren Ulu"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="photo-fallback" style="display:none">EU</div>
+            </div>
+            <strong>Eren Ulu</strong>
+            <span>Jury Member</span>
+            <span class="role-tag">Lecturer</span>
           </div>
+
         </div>
 
-        <h2 class="section-heading reveal" style="margin-top:4rem;">Our Team</h2>
-        <div class="team-grid reveal">
-          <div class="team-card glass">
-            <div class="team-avatar" style="background: linear-gradient(135deg,#f59e0b,#10b981)">IG</div>
-            <h4>Irmak Genç</h4>
-            <p>Software Engineering</p>
+        <h2 class="section-heading reveal" style="margin-top:3rem;">Our Team</h2>
+        <div class="team-row reveal">
+          <div class="team-card">
+            <div class="person-photo">
+              <div class="photo-fallback always">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+            </div>
+            <strong>Irmak Genç</strong>
+            <span>Software Engineering</span>
             <a href="mailto:irmakgenc@tedu.edu.tr" class="email-link">irmakgenc@tedu.edu.tr</a>
           </div>
-          <div class="team-card glass">
-            <div class="team-avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">IK</div>
-            <h4>Irem Karahan</h4>
-            <p>Software Engineering</p>
+          <div class="team-card">
+            <div class="person-photo">
+              <div class="photo-fallback always">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+            </div>
+            <strong>Irem Karahan</strong>
+            <span>Software Engineering</span>
             <a href="mailto:irem.karahan@tedu.edu.tr" class="email-link">irem.karahan@tedu.edu.tr</a>
           </div>
-          <div class="team-card glass">
-            <div class="team-avatar" style="background: linear-gradient(135deg,#10b981,#0891b2)">KG</div>
-            <h4>Kerim Gürsoy</h4>
-            <p>Software Engineering</p>
+          <div class="team-card">
+            <div class="person-photo">
+              <div class="photo-fallback always">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+            </div>
+            <strong>Kerim Gürsoy</strong>
+            <span>Software Engineering</span>
             <a href="mailto:kerim.gursoy@tedu.edu.tr" class="email-link">kerim.gursoy@tedu.edu.tr</a>
           </div>
         </div>
@@ -575,98 +751,75 @@
 
     </main>
 
-    <!-- ===== RIGHT SIDEBAR ===== -->
+    <!-- RIGHT SIDEBAR -->
     <aside class="sidebar-right">
-
-      <!-- Trending Skills -->
-      <div class="rside-widget">
-        <h3 class="rside-title">🔥 Trending Skills</h3>
-        <ul class="trending-list">
-          <li class="trending-item"><span class="tr-rank">1</span><span class="tr-skill">Python Programming</span><span class="tr-count">43 posts</span></li>
-          <li class="trending-item"><span class="tr-rank">2</span><span class="tr-skill">Guitar Lessons</span><span class="tr-count">38 posts</span></li>
-          <li class="trending-item"><span class="tr-rank">3</span><span class="tr-skill">Graphic Design</span><span class="tr-count">34 posts</span></li>
-          <li class="trending-item"><span class="tr-rank">4</span><span class="tr-skill">Turkish Cooking</span><span class="tr-count">29 posts</span></li>
-          <li class="trending-item"><span class="tr-rank">5</span><span class="tr-skill">Yoga &amp; Wellness</span><span class="tr-count">27 posts</span></li>
+      <div class="rw">
+        <h3 class="rw-title">Trending Skills</h3>
+        <ul class="trend-list">
+          <li><span class="tr-num">1</span><span class="tr-name">Python</span><span class="tr-cnt">43 posts</span></li>
+          <li><span class="tr-num">2</span><span class="tr-name">Guitar</span><span class="tr-cnt">38 posts</span></li>
+          <li><span class="tr-num">3</span><span class="tr-name">Graphic Design</span><span class="tr-cnt">34
+              posts</span></li>
+          <li><span class="tr-num">4</span><span class="tr-name">Cooking</span><span class="tr-cnt">29 posts</span></li>
+          <li><span class="tr-num">5</span><span class="tr-name">Yoga</span><span class="tr-cnt">27 posts</span></li>
         </ul>
       </div>
 
-      <!-- Active Members -->
-      <div class="rside-widget">
-        <h3 class="rside-title">👥 Active Now</h3>
-        <div class="active-members-row">
-          <div class="am-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" title="Maria J.">MJ</div>
-          <div class="am-av" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)" title="Tom K.">TK</div>
-          <div class="am-av" style="background:linear-gradient(135deg,#10b981,#0891b2)" title="Sara A.">SA</div>
-          <div class="am-av" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)" title="Kerim G.">KG</div>
-          <div class="am-av" style="background:linear-gradient(135deg,#f43f5e,#f59e0b)" title="Leyla D.">LD</div>
+      <div class="rw">
+        <h3 class="rw-title">Active Now</h3>
+        <div class="am-row">
+          <div class="am-av av-peach">MJ</div>
+          <div class="am-av av-mint">TK</div>
+          <div class="am-av av-sky">SA</div>
+          <div class="am-av av-lavender">KG</div>
+          <div class="am-av av-rose">LD</div>
           <div class="am-av more">+8</div>
         </div>
         <p class="am-label">12 people active right now</p>
       </div>
 
-      <!-- Upcoming Events -->
-      <div class="rside-widget">
-        <h3 class="rside-title">📅 Community Events</h3>
-        <div class="event-list">
-          <div class="event-item">
-            <div class="event-date"><span class="ev-day">22</span><span class="ev-month">Feb</span></div>
-            <div class="event-info"><strong>Skill Fair</strong><p>Kızılay Community Center · 14:00</p></div>
+      <div class="rw">
+        <h3 class="rw-title">Upcoming Events</h3>
+        <div class="ev-list">
+          <div class="ev-item">
+            <div class="ev-date"><span class="ev-d">22</span><span class="ev-m">Feb</span></div>
+            <div class="ev-info"><strong>Skill Fair</strong>
+              <p>Kızılay Center · 14:00</p>
+            </div>
           </div>
-          <div class="event-item">
-            <div class="event-date"><span class="ev-day">01</span><span class="ev-month">Mar</span></div>
-            <div class="event-info"><strong>Coding Workshop</strong><p>TEDU Campus · 10:00</p></div>
+          <div class="ev-item">
+            <div class="ev-date"><span class="ev-d">01</span><span class="ev-m">Mar</span></div>
+            <div class="ev-info"><strong>Coding Workshop</strong>
+              <p>TEDU Campus · 10:00</p>
+            </div>
           </div>
-          <div class="event-item">
-            <div class="event-date"><span class="ev-day">08</span><span class="ev-month">Mar</span></div>
-            <div class="event-info"><strong>Swap Meetup #4</strong><p>Tunalı Park · 13:00</p></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Time Bank Leaderboard -->
-      <div class="rside-widget">
-        <h3 class="rside-title">🏆 Time Bank Leaders</h3>
-        <div class="leader-list">
-          <div class="leader-item">
-            <span class="leader-rank gold">🥇</span>
-            <div class="leader-av" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">KG</div>
-            <div class="leader-info"><strong>Kerim G.</strong><span>20h banked</span></div>
-          </div>
-          <div class="leader-item">
-            <span class="leader-rank silver">🥈</span>
-            <div class="leader-av" style="background:linear-gradient(135deg,#10b981,#0891b2)">SA</div>
-            <div class="leader-info"><strong>Sara A.</strong><span>15h banked</span></div>
-          </div>
-          <div class="leader-item">
-            <span class="leader-rank bronze">🥉</span>
-            <div class="leader-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">MJ</div>
-            <div class="leader-info"><strong>Maria J.</strong><span>12h banked</span></div>
+          <div class="ev-item">
+            <div class="ev-date"><span class="ev-d">08</span><span class="ev-m">Mar</span></div>
+            <div class="ev-info"><strong>Swap Meetup #4</strong>
+              <p>Tunalı Park · 13:00</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Quick Links -->
-      <div class="rside-widget quick-links">
-        <h3 class="rside-title">🔗 Quick Links</h3>
-        <div class="qlink-grid">
-          <a href="#" class="qlink">About</a>
-          <a href="#" class="qlink">Features</a>
-          <a href="#" class="qlink">Privacy</a>
-          <a href="#" class="qlink">Contact</a>
-          <a href="https://github.com/SkillSwap-Team" class="qlink">GitHub</a>
-          <a href="#" class="qlink">Docs</a>
+      <div class="rw quick-links">
+        <h3 class="rw-title">Quick Links</h3>
+        <div class="ql-grid">
+          <a href="#about" class="ql">About</a>
+          <a href="#" class="ql">Privacy</a>
+          <a href="#" class="ql">Contact</a>
+          <a href="https://github.com/SkillSwap-Team" class="ql">GitHub</a>
         </div>
-        <p class="rside-footer-text">© 2026 SkillSwap Team · TEDU</p>
+        <p class="rl-copy">© 2026 SkillSwap · TED University</p>
       </div>
-
     </aside>
 
-  </div><!-- /app-layout -->
+  </div>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <a href="#" class="logo footer-logo">Skill<span>Swap</span></a>
+      <a href="#" class="logo">Skill<span>Swap</span></a>
       <p>Building community connections, one skill at a time.</p>
       <div class="footer-links">
         <a href="#feed">Feed</a>
@@ -674,7 +827,7 @@
         <a href="#timebank">Time Bank</a>
         <a href="#community">Community</a>
         <a href="#team">Team</a>
-        <a href="https://github.com/SkillSwap-Team">GitHub ↗</a>
+        <a href="https://github.com/SkillSwap-Team">GitHub</a>
       </div>
       <p class="footer-copy">© 2026 SkillSwap Team. All Rights Reserved.</p>
     </div>
@@ -682,4 +835,5 @@
 
   <script src="main.js"></script>
 </body>
+
 </html>

@@ -8,13 +8,117 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /*mobile navbar */
+        /* hamburger: hidden */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: currentColor;
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* hamburger: x */
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            /* hamburger */
+            .nav-container {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                flex-wrap: nowrap !important;
+                position: relative !important;
+            }
+
+            /* menu default:secret, vertical in mobile */
+            .nav-menu {
+                display: flex !important;
+                flex-direction: column !important;
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                background-color: #2c2c2c !important;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+                list-style: none !important;
+                margin: 0 !important;
+                z-index: 9999 !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                transition: max-height 0.35s ease, padding 0.35s ease !important;
+            }
+
+            .nav-menu.open {
+                max-height: 400px !important;
+                padding: 8px 0 !important;
+            }
+
+            .nav-menu li {
+                width: 100% !important;
+            }
+
+            .nav-menu .nav-link {
+                display: block !important;
+                padding: 14px 24px !important;
+                text-align: left !important;
+                color: #ffffff !important;
+                font-size: 15px !important;
+                text-decoration: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+            }
+
+            .nav-menu li:last-child .nav-link {
+                border-bottom: none !important;
+            }
+
+            .nav-menu .nav-link:hover {
+                background-color: rgba(255,255,255,0.1) !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">SkillHood</div>
-            <ul class="nav-menu">
+
+            <!-- hamburger button -->
+            <button class="hamburger" id="hamburger" aria-label="Open/close menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#hero" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About the Project</a></li>
                 <li><a href="#reports" class="nav-link">Project Officials</a></li>
@@ -29,15 +133,12 @@
             <h1 class="hero-title">The <strong>SkillHood</strong></h1>
             <h2 class="hero-subtitle"><span class="typing-text"></span></h2>
         </div>
-      </section>
+    </section>
 
     <!-- About the Project -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">About the Project</h2>
-            
-            
-
             <div class="features-grid">
                 <div class="feature-item">
                     <h3 class="feature-title">Skill Exchange & Matching:</h3>
@@ -45,31 +146,26 @@
                         Connect neighbors to exchange skills. Our smart algorithm matches members based on what they offer and need.
                     </p>
                 </div>
-
                 <div class="feature-item">
                     <h3 class="feature-title">Reputation & Trust:</h3>
                     <p class="feature-text">
                         Build trust through reviews and ratings. Transparent feedback helps recognize reliable community members.
                     </p>
                 </div>
-
                 <div class="feature-item">
                     <h3 class="feature-title">Community Building:</h3>
                     <p class="feature-text">
                         Strengthen neighborhood bonds through face-to-face interactions and mutual support. Build a stronger, more connected community.
                     </p>
                 </div>
-
-               
             </div>
         </div>
-      </section>
+    </section>
 
     <!-- Advisor & Jury Section -->
     <section id="advisors" class="section section-alt">
         <div class="container">
             <h2 class="section-title">Project Advisor and Jury Members</h2>
-            
             <div class="officials-grid">
                 <div class="official-card">
                     <div class="official-image-wrapper">
@@ -79,7 +175,6 @@
                     <p class="official-title">Lecturer at Department of Software Engineering</p>
                     <h4 class="official-name">Dr. Deniz Cantürk</h4>
                 </div>
-
                 <div class="official-card">
                     <div class="official-image-wrapper">
                         <img src="tanseldokeroglu.jpg.webp" alt="Prof Dr. Tansel Dökeroğlu" class="official-image">
@@ -88,7 +183,6 @@
                     <p class="official-title">Head of Software Engineering Department</p>
                     <h4 class="official-name">Prof Dr. Tansel Dökeroğlu</h4>
                 </div>
-
                 <div class="official-card">
                     <div class="official-image-wrapper">
                         <img src="fıratakba.jpg.webp" alt="Dr. Fırat Akba" class="official-image">
@@ -97,7 +191,6 @@
                     <p class="official-title">Lecturer at Department of Computer Engineering</p>
                     <h4 class="official-name">Dr. Fırat Akba</h4>
                 </div>
-
                 <div class="official-card">
                     <div class="official-image-wrapper">
                         <img src="erenulu.jpg" alt="Dr. Eren Ulu" class="official-image">
@@ -114,7 +207,6 @@
     <section id="team" class="section">
         <div class="container">
             <h2 class="section-title">Our Team</h2>
-            
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-avatar">
@@ -123,7 +215,6 @@
                     <h3 class="team-name">Irmak Genç</h3>
                     <p class="team-email">irmak.genc@tedu.edu.tr</p>
                 </div>
-
                 <div class="team-card">
                     <div class="team-avatar">
                         <span class="team-initials">İK</span>
@@ -131,7 +222,6 @@
                     <h3 class="team-name">İrem Karahan</h3>
                     <p class="team-email">irem.karahan@tedu.edu.tr</p>
                 </div>
-
                 <div class="team-card">
                     <div class="team-avatar">
                         <span class="team-initials">KG</span>
@@ -150,7 +240,6 @@
             <div class="reports-content">
                 <a href="#" class="report-link" target="_blank">Click here to view the full report in Google Docs</a>
             </div>
-            
             <h2 class="section-title" style="margin-top: 3rem;">High-Level Design Report</h2>
             <div class="reports-content">
                 <a href="#" class="report-link" target="_blank">High-Level Design Report</a>
@@ -159,12 +248,41 @@
     </section>
 
     <!-- Footer -->
-  <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <p class="footer-text">This site is published by SkillHood Team</p>
-    </div>
-  </footer>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
+    <script>
+        // hamburger menu logic
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // close after clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // close after clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>

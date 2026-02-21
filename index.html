@@ -2,173 +2,684 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillSwap | Hyperlocal Skill Exchange Platform</title>
-    <meta name="description"
-        content="SkillSwap - A hyperlocal platform where neighbors exchange skills and time. Build community through time banking and reputation systems.">
-    <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap | Community Skill Exchange Platform</title>
+  <meta name="description" content="Exchange skills with your neighbors. Teach guitar, learn gardening — no money needed. Time banking for your community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Skill<span>Swap</span></a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#team">Team</a>
-            </div>
+
+  <!-- ===== TOP NAVBAR ===== -->
+  <header class="topbar" id="top">
+    <div class="topbar-left">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <span class="hamburger"></span>
+      </button>
+      <a href="#" class="logo">Skill<span>Swap</span></a>
+    </div>
+
+    <div class="topbar-center">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search skills, people, locations…" />
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="badge">3</span>
+        <!-- Notification dropdown -->
+        <div class="notif-dropdown" id="notifDropdown">
+          <p class="notif-title">Notifications</p>
+          <div class="notif-item">
+            <span class="notif-avatar">MJ</span>
+            <div><strong>Maria J.</strong> wants to swap <em>Yoga</em> for <em>Python tutoring</em></div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-avatar">TK</span>
+            <div><strong>Tom K.</strong> accepted your <em>Guitar lesson</em> request</div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-avatar">AI</span>
+            <div>You earned <strong>+2h</strong> in your Time Bank today 🎉</div>
+          </div>
         </div>
-    </nav>
+      </button>
 
-    <header id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="reveal">Connect. Learn. Grow.</h1>
-            <p class="reveal">A hyperlocal community platform where neighbors exchange skills/time instead of money.</p>
-            <div class="hero-btns reveal">
-                <a href="#about" class="btn btn-primary">Our Vision</a>
-                <a href="#features" class="btn btn-outline">Explore Features</a>
-            </div>
+      <button class="icon-btn" aria-label="Messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="badge msg-badge">5</span>
+      </button>
+
+      <div class="user-chip">
+        <div class="user-avatar-sm">IG</div>
+        <span class="user-name-sm">Irmak G.</span>
+      </div>
+
+      <div class="auth-btns">
+        <a href="#" class="btn btn-ghost">Log In</a>
+        <a href="#" class="btn btn-primary">Sign Up Free</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT WRAPPER ===== -->
+  <div class="app-layout">
+
+    <!-- ===== LEFT SIDEBAR ===== -->
+    <aside class="sidebar-left" id="sidebarLeft">
+      <nav class="sidebar-nav">
+        <a href="#feed" class="nav-item active" data-section="feed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home Feed</span>
+        </a>
+        <a href="#skills" class="nav-item" data-section="skills">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.59 1.28h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.39a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Explore Skills</span>
+        </a>
+        <a href="#timebank" class="nav-item" data-section="timebank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Time Bank</span>
+        </a>
+        <a href="#community" class="nav-item" data-section="community">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Community</span>
+        </a>
+        <a href="#members" class="nav-item" data-section="members">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Members</span>
+        </a>
+        <a href="#about" class="nav-item" data-section="about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>About</span>
+        </a>
+        <a href="#team" class="nav-item" data-section="team">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Project Team</span>
+        </a>
+        <div class="sidebar-divider"></div>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          <span>My Profile</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Time Bank Widget -->
+      <div class="sidebar-widget timebank-widget">
+        <p class="widget-label">My Time Bank</p>
+        <div class="tb-ring-wrap">
+          <svg class="tb-ring" viewBox="0 0 80 80">
+            <circle class="tb-ring-bg" cx="40" cy="40" r="32" />
+            <circle class="tb-ring-fill" cx="40" cy="40" r="32" stroke-dasharray="200.96" stroke-dashoffset="70" />
+          </svg>
+          <div class="tb-ring-text">
+            <span class="tb-hours">8.5h</span>
+            <span class="tb-label">balance</span>
+          </div>
         </div>
-    </header>
+        <div class="tb-stats">
+          <div class="tb-stat"><span class="tb-stat-val green">+12h</span><span class="tb-stat-key">Given</span></div>
+          <div class="tb-stat"><span class="tb-stat-val amber">−3.5h</span><span class="tb-stat-key">Used</span></div>
+        </div>
+      </div>
 
-    <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">The Vision</h2>
-                <div class="grid grid-2">
-                    <div class="card glass">
-                        <h3>Community Service</h3>
-                        <p>We believe in building stronger community connections. SkillSwap helps people access services
-                            they can't afford by leveraging the collective knowledge of their neighborhood.</p>
-                    </div>
-                    <div class="card glass">
-                        <h3>Time Banking</h3>
-                        <p>Our unique "time banking" feature tracks community service hours. Someone teaches you guitar,
-                            you help them with gardening – it's a mutual exchange of value.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Quick Stats -->
+      <div class="sidebar-widget quick-stats">
+        <p class="widget-label">Quick Stats</p>
+        <div class="qs-grid">
+          <div class="qs-item"><span class="qs-num">4</span><span class="qs-text">Skills Offered</span></div>
+          <div class="qs-item"><span class="qs-num">2</span><span class="qs-text">Learned</span></div>
+          <div class="qs-item"><span class="qs-num">★4.9</span><span class="qs-text">Rating</span></div>
+          <div class="qs-item"><span class="qs-num">18</span><span class="qs-text">Swaps Done</span></div>
+        </div>
+      </div>
+    </aside>
 
-        <section id="features" class="section bg-alt">
-            <div class="container text-center">
-                <h2 class="section-title">Platform Features</h2>
-                <div class="grid grid-4">
-                    <div class="card glass">
-                        <div class="icon">🤝</div>
-                        <h4>Matching</h4>
-                        <p>Smart algorithm to find the right skill pair.</p>
-                    </div>
-                    <div class="card glass">
-                        <div class="icon">📅</div>
-                        <h4>Scheduling</h4>
-                        <p>Integrated system to manage your swaps.</p>
-                    </div>
-                    <div class="card glass">
-                        <div class="icon">⭐</div>
-                        <h4>Reputation</h4>
-                        <p>Trust-based review and rating system.</p>
-                    </div>
-                    <div class="card glass">
-                        <div class="icon">📊</div>
-                        <h4>Time Bank</h4>
-                        <p>Track and manage your community hours.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
 
-        <section id="reports" class="section">
-            <div class="container text-center">
-                <h2 class="section-title">Project Documentation</h2>
-                <div class="grid grid-3">
-                    <a href="#" class="report-card glass">
-                        <div class="icon">📋</div>
-                        <h4>Project Specifications Report</h4>
-                        <span>View Document</span>
-                    </a>
-                    <a href="#" class="report-card glass">
-                        <div class="icon">📄</div>
-                        <h4>Project Analysis Report</h4>
-                        <span>View Document</span>
-                    </a>
-                    <a href="#" class="report-card glass">
-                        <div class="icon">⚙️</div>
-                        <h4>High Level Design Report</h4>
-                        <span>View Document</span>
-                    </a>
-                </div>
+      <!-- Hero Banner (compact) -->
+      <section class="hero-banner reveal" id="top-hero">
+        <div class="hero-banner-inner">
+          <div class="hero-text">
+            <div class="hero-tag">🌱 Hyperlocal · Community-Powered</div>
+            <h1>Connect. Learn. <span class="grad-text">Grow Together.</span></h1>
+            <p>Exchange skills with your neighbors — no money needed. Teach what you know, learn what you need.</p>
+            <div class="hero-cta">
+              <a href="#skills" class="btn btn-primary">Browse Skills</a>
+              <a href="#about" class="btn btn-outline">Our Vision</a>
             </div>
-        </section>
+            <div class="hero-pills">
+              <span class="pill">🎸 Guitar</span>
+              <span class="pill">🌿 Gardening</span>
+              <span class="pill">💻 Coding</span>
+              <span class="pill">🎨 Design</span>
+              <span class="pill">🧘 Yoga</span>
+              <span class="pill">🍳 Cooking</span>
+            </div>
+          </div>
+          <div class="hero-stats">
+            <div class="hstat-card"><span class="hstat-num">1,240+</span><span class="hstat-label">Members</span></div>
+            <div class="hstat-card"><span class="hstat-num">320+</span><span class="hstat-label">Skills Listed</span></div>
+            <div class="hstat-card"><span class="hstat-num">5,800h</span><span class="hstat-label">Hours Banked</span></div>
+          </div>
+        </div>
+      </section>
 
-        <section id="advisors" class="section bg-alt">
-            <div class="container">
-                <h2 class="section-title">Advisors & Jury</h2>
-                <div class="grid grid-4">
-                    <div class="member-card glass text-center">
-                        <h4>Deniz Cantürk</h4>
-                        <p class="text-muted">Project Advisor</p>
-                    </div>
-                    <div class="member-card glass text-center">
-                        <h4>Fırat Akba</h4>
-                        <p class="text-muted">Jury Member</p>
-                    </div>
-                    <div class="member-card glass text-center">
-                        <h4>Tansel Dökeroğlu</h4>
-                        <p class="text-muted">Jury Member</p>
-                    </div>
-                    <div class="member-card glass text-center">
-                        <h4>Eren Ulu</h4>
-                        <p class="text-muted">Jury Member</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- ===== SKILL FEED ===== -->
+      <section class="section feed-section" id="feed">
+        <div class="section-header">
+          <h2 class="section-heading">Skill Feed</h2>
+          <div class="feed-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nearby">📍 Nearby</button>
+            <button class="filter-btn" data-filter="new">✨ New</button>
+            <button class="filter-btn" data-filter="popular">🔥 Popular</button>
+          </div>
+        </div>
 
-        <section id="team" class="section">
-            <div class="container">
-                <h2 class="section-title">Our Team</h2>
-                <div class="grid grid-3">
-                    <div class="team-card glass">
-                        <div class="team-initials">IG</div>
-                        <h4>Irmak Genç</h4>
-                        <p>Software Engineering</p>
-                        <a href="mailto:irmakgenc@tedu.edu.tr" class="email">Email Me</a>
-                    </div>
-                    <div class="team-card glass">
-                        <div class="team-initials">IK</div>
-                        <h4>Irem Karahan</h4>
-                        <p>Software Engineering</p>
-                        <a href="mailto:irem.karahan@tedu.edu.tr" class="email">Email Me</a>
-                    </div>
-                    <div class="team-card glass">
-                        <div class="team-initials">KG</div>
-                        <h4>Kerim Gürsoy</h4>
-                        <p>Software Engineering</p>
-                        <a href="mailto:kerim.gursoy@tedu.edu.tr" class="email">Email Me</a>
-                    </div>
-                </div>
+        <!-- Post card 1 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="sk-avatar">MJ</div>
+            <div class="sk-meta">
+              <span class="sk-name">Maria Johnson</span>
+              <span class="sk-loc">📍 Çankaya, Ankara · 2h ago</span>
             </div>
-        </section>
+            <span class="match-badge">96% match</span>
+          </div>
+          <div class="skill-card-body">
+            <div class="swap-row">
+              <div class="swap-offer">
+                <span class="swap-label offer">Offers</span>
+                <span class="swap-skill">🎯 Yoga &amp; Meditation</span>
+              </div>
+              <div class="swap-arrow">⇄</div>
+              <div class="swap-need">
+                <span class="swap-label need">Needs</span>
+                <span class="swap-skill">💻 Python Basics</span>
+              </div>
+            </div>
+            <p class="sk-desc">I can teach Hatha yoga and guided meditation — 5 years experience. Looking for someone to help me get started with Python for data analysis.</p>
+            <div class="sk-tags">
+              <span class="tag">Beginner-friendly</span>
+              <span class="tag">1h sessions</span>
+              <span class="tag">Flexible schedule</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="time-cost">⏱ 1h / session</span>
+            <div class="sk-actions">
+              <button class="btn-icon-sm">💬 Chat</button>
+              <button class="btn btn-swap">Request Swap</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post card 2 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="sk-avatar" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6);">TK</div>
+            <div class="sk-meta">
+              <span class="sk-name">Tom Kowalski</span>
+              <span class="sk-loc">📍 Keçiören, Ankara · 5h ago</span>
+            </div>
+            <span class="match-badge" style="background:rgba(59,130,246,0.15); color:#60a5fa; border-color: rgba(59,130,246,0.3);">88% match</span>
+          </div>
+          <div class="skill-card-body">
+            <div class="swap-row">
+              <div class="swap-offer">
+                <span class="swap-label offer">Offers</span>
+                <span class="swap-skill">🎸 Guitar Lessons</span>
+              </div>
+              <div class="swap-arrow">⇄</div>
+              <div class="swap-need">
+                <span class="swap-label need">Needs</span>
+                <span class="swap-skill">🌿 Gardening Help</span>
+              </div>
+            </div>
+            <p class="sk-desc">Classical and acoustic guitar, 10 years playing. Would love help setting up a vegetable garden in my backyard — soil prep, planting, the works!</p>
+            <div class="sk-tags">
+              <span class="tag">All levels</span>
+              <span class="tag">Evenings / weekends</span>
+              <span class="tag">In person</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="time-cost">⏱ 1.5h / session</span>
+            <div class="sk-actions">
+              <button class="btn-icon-sm">💬 Chat</button>
+              <button class="btn btn-swap">Request Swap</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post card 3 -->
+        <div class="skill-card reveal">
+          <div class="skill-card-header">
+            <div class="sk-avatar" style="background: linear-gradient(135deg, #10b981, #0891b2);">SA</div>
+            <div class="sk-meta">
+              <span class="sk-name">Sara Ahmed</span>
+              <span class="sk-loc">📍 Yenimahalle, Ankara · 1d ago</span>
+            </div>
+            <span class="match-badge" style="background:rgba(16,185,129,0.15); color:#34d399; border-color: rgba(16,185,129,0.3);">92% match</span>
+          </div>
+          <div class="skill-card-body">
+            <div class="swap-row">
+              <div class="swap-offer">
+                <span class="swap-label offer">Offers</span>
+                <span class="swap-skill">🍳 Turkish Cooking</span>
+              </div>
+              <div class="swap-arrow">⇄</div>
+              <div class="swap-need">
+                <span class="swap-label need">Needs</span>
+                <span class="swap-skill">🎨 Graphic Design</span>
+              </div>
+            </div>
+            <p class="sk-desc">Traditional Turkish cuisine — meze, pastries, main dishes. Looking for someone to help design a logo &amp; social media templates for my small catering business.</p>
+            <div class="sk-tags">
+              <span class="tag">Home kitchen</span>
+              <span class="tag">Weekend mornings</span>
+              <span class="tag">Groups welcome</span>
+            </div>
+          </div>
+          <div class="skill-card-footer">
+            <span class="time-cost">⏱ 2h / session</span>
+            <div class="sk-actions">
+              <button class="btn-icon-sm">💬 Chat</button>
+              <button class="btn btn-swap">Request Swap</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Swap Status -->
+        <div class="active-swap-strip reveal">
+          <h3 class="strip-heading">⚡ Active Swaps In Progress</h3>
+          <div class="active-swaps-row">
+            <div class="active-swap-card">
+              <div class="as-avatars"><span class="as-av">IG</span><span class="as-av" style="margin-left:-10px;background:linear-gradient(135deg,#f59e0b,#ef4444);">TK</span></div>
+              <div class="as-info">
+                <span class="as-title">Guitar ↔ Gardening</span>
+                <span class="as-sub">Session 2 of 3 · Next: Sat Feb 22</span>
+              </div>
+              <span class="as-status in-progress">In Progress</span>
+            </div>
+            <div class="active-swap-card">
+              <div class="as-avatars"><span class="as-av">IG</span><span class="as-av" style="margin-left:-10px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);">MJ</span></div>
+              <div class="as-info">
+                <span class="as-title">Yoga ↔ Python</span>
+                <span class="as-sub">Session 1 of 4 · Next: Sun Feb 23</span>
+              </div>
+              <span class="as-status scheduled">Scheduled</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== EXPLORE SKILLS ===== -->
+      <section class="section" id="skills">
+        <h2 class="section-heading reveal">Explore Skills</h2>
+        <div class="skills-category-grid reveal">
+          <div class="cat-card">
+            <span class="cat-icon">🎵</span><span class="cat-name">Music</span><span class="cat-count">48 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">💻</span><span class="cat-name">Tech & Coding</span><span class="cat-count">63 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🌿</span><span class="cat-name">Gardening</span><span class="cat-count">31 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🎨</span><span class="cat-name">Art & Design</span><span class="cat-count">55 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🧘</span><span class="cat-name">Wellness</span><span class="cat-count">29 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🍳</span><span class="cat-name">Cooking</span><span class="cat-count">42 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">📚</span><span class="cat-name">Tutoring</span><span class="cat-count">38 listings</span>
+          </div>
+          <div class="cat-card">
+            <span class="cat-icon">🔧</span><span class="cat-name">Repairs & DIY</span><span class="cat-count">27 listings</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TIME BANK ===== -->
+      <section class="section alt-bg" id="timebank">
+        <h2 class="section-heading reveal">⏱ Time Banking</h2>
+        <p class="section-sub reveal">Every hour you give earns one hour you can spend. Community service hours, tracked transparently.</p>
+        <div class="tb-explainer reveal">
+          <div class="tb-step">
+            <div class="tb-step-num">1</div>
+            <div class="tb-step-text"><strong>Offer your skill</strong><br/>Post what you can teach or do</div>
+          </div>
+          <div class="tb-arrow-h">→</div>
+          <div class="tb-step">
+            <div class="tb-step-num">2</div>
+            <div class="tb-step-text"><strong>Complete a swap</strong><br/>Meet, help, and verify the session</div>
+          </div>
+          <div class="tb-arrow-h">→</div>
+          <div class="tb-step">
+            <div class="tb-step-num">3</div>
+            <div class="tb-step-text"><strong>Earn hours</strong><br/>Hours credited to your Time Bank</div>
+          </div>
+          <div class="tb-arrow-h">→</div>
+          <div class="tb-step">
+            <div class="tb-step-num">4</div>
+            <div class="tb-step-text"><strong>Spend &amp; learn</strong><br/>Use hours to access any other skill</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== COMMUNITY ===== -->
+      <section class="section" id="community">
+        <h2 class="section-heading reveal">Community</h2>
+        <div class="community-grid reveal">
+          <div class="community-card glass">
+            <span class="comm-icon">🏘️</span>
+            <h3>Neighborhood Circles</h3>
+            <p>Join or create a local circle for your district. Organize events, share resources, and build connections with people nearby.</p>
+            <a href="#" class="link-btn">Join a Circle →</a>
+          </div>
+          <div class="community-card glass">
+            <span class="comm-icon">📅</span>
+            <h3>Community Events</h3>
+            <p>Skill Fairs, Group Workshops, and Swap Meetups — organized by the community, for the community.</p>
+            <a href="#" class="link-btn">See Events →</a>
+          </div>
+          <div class="community-card glass">
+            <span class="comm-icon">📣</span>
+            <h3>Announcements</h3>
+            <p>Stay up-to-date with new feature launches, community milestones, and neighborhood news.</p>
+            <a href="#" class="link-btn">Read More →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== MEMBERS ===== -->
+      <section class="section alt-bg" id="members">
+        <h2 class="section-heading reveal">Meet the Members</h2>
+        <div class="members-grid reveal">
+          <div class="member-card glass">
+            <div class="member-avatar" style="background: linear-gradient(135deg,#f59e0b,#ef4444)">MJ</div>
+            <span class="member-name">Maria J.</span>
+            <span class="member-skill">Yoga · Python</span>
+            <div class="member-rating">★★★★★ <span>4.9</span></div>
+            <span class="member-hours">12h banked</span>
+          </div>
+          <div class="member-card glass">
+            <div class="member-avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">TK</div>
+            <span class="member-name">Tom K.</span>
+            <span class="member-skill">Guitar · Gardening</span>
+            <div class="member-rating">★★★★★ <span>5.0</span></div>
+            <span class="member-hours">8h banked</span>
+          </div>
+          <div class="member-card glass">
+            <div class="member-avatar" style="background: linear-gradient(135deg,#10b981,#0891b2)">SA</div>
+            <span class="member-name">Sara A.</span>
+            <span class="member-skill">Cooking · Design</span>
+            <div class="member-rating">★★★★☆ <span>4.7</span></div>
+            <span class="member-hours">15h banked</span>
+          </div>
+          <div class="member-card glass">
+            <div class="member-avatar" style="background: linear-gradient(135deg,#8b5cf6,#ec4899)">KG</div>
+            <span class="member-name">Kerim G.</span>
+            <span class="member-skill">Coding · Math</span>
+            <div class="member-rating">★★★★★ <span>4.8</span></div>
+            <span class="member-hours">20h banked</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section class="section" id="about">
+        <h2 class="section-heading reveal">The Vision</h2>
+        <div class="about-grid reveal">
+          <div class="glass about-card">
+            <span class="about-icon">🤝</span>
+            <h3>Community Service</h3>
+            <p>We believe in building stronger community connections. SkillSwap helps people access services they can't afford by leveraging the collective knowledge of their neighborhood.</p>
+          </div>
+          <div class="glass about-card">
+            <span class="about-icon">⏱</span>
+            <h3>Time Banking</h3>
+            <p>Our unique "time banking" feature tracks community service hours. Someone teaches you guitar, you help them with gardening — a mutual exchange of real value.</p>
+          </div>
+          <div class="glass about-card">
+            <span class="about-icon">🛡️</span>
+            <h3>Reputation System</h3>
+            <p>Every swap builds trust. Our review and rating system ensures quality and accountability, creating a safe space for community exchanges.</p>
+          </div>
+        </div>
+
+        <!-- Features Grid -->
+        <h2 class="section-heading reveal" style="margin-top:5rem;">Platform Features</h2>
+        <div class="features-grid reveal">
+          <div class="feature-pill">
+            <span class="feat-icon">🔗</span>
+            <div><strong>Smart Matching</strong><p>Algorithm finds ideal skill pairs</p></div>
+          </div>
+          <div class="feature-pill">
+            <span class="feat-icon">📅</span>
+            <div><strong>Scheduling</strong><p>Integrated calendar for swaps</p></div>
+          </div>
+          <div class="feature-pill">
+            <span class="feat-icon">⭐</span>
+            <div><strong>Reputation</strong><p>Trust-based review system</p></div>
+          </div>
+          <div class="feature-pill">
+            <span class="feat-icon">🏦</span>
+            <div><strong>Time Bank</strong><p>Track community hours earned</p></div>
+          </div>
+          <div class="feature-pill">
+            <span class="feat-icon">📍</span>
+            <div><strong>Hyperlocal</strong><p>Neighborhood-level connections</p></div>
+          </div>
+          <div class="feature-pill">
+            <span class="feat-icon">🔔</span>
+            <div><strong>Notifications</strong><p>Real-time swap updates</p></div>
+          </div>
+        </div>
+
+        <!-- Docs Section -->
+        <h2 class="section-heading reveal" style="margin-top:5rem;">Project Documentation</h2>
+        <div class="docs-grid reveal">
+          <a href="#" class="doc-card glass">
+            <span class="doc-icon">📋</span>
+            <div class="doc-info">
+              <strong>Project Specifications Report</strong>
+              <span>View Document →</span>
+            </div>
+          </a>
+          <a href="#" class="doc-card glass">
+            <span class="doc-icon">📄</span>
+            <div class="doc-info">
+              <strong>Project Analysis Report</strong>
+              <span>View Document →</span>
+            </div>
+          </a>
+          <a href="#" class="doc-card glass">
+            <span class="doc-icon">⚙️</span>
+            <div class="doc-info">
+              <strong>High Level Design Report</strong>
+              <span>View Document →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== TEAM ===== -->
+      <section class="section alt-bg" id="team">
+        <h2 class="section-heading reveal">Advisors &amp; Jury</h2>
+        <div class="advisors-row reveal">
+          <div class="advisor-chip glass">
+            <div class="advisor-av">DC</div>
+            <div><strong>Deniz Cantürk</strong><span>Project Advisor</span></div>
+          </div>
+          <div class="advisor-chip glass">
+            <div class="advisor-av">FA</div>
+            <div><strong>Fırat Akba</strong><span>Jury Member</span></div>
+          </div>
+          <div class="advisor-chip glass">
+            <div class="advisor-av">TD</div>
+            <div><strong>Tansel Dökeroğlu</strong><span>Jury Member</span></div>
+          </div>
+          <div class="advisor-chip glass">
+            <div class="advisor-av">EU</div>
+            <div><strong>Eren Ulu</strong><span>Jury Member</span></div>
+          </div>
+        </div>
+
+        <h2 class="section-heading reveal" style="margin-top:4rem;">Our Team</h2>
+        <div class="team-grid reveal">
+          <div class="team-card glass">
+            <div class="team-avatar" style="background: linear-gradient(135deg,#f59e0b,#10b981)">IG</div>
+            <h4>Irmak Genç</h4>
+            <p>Software Engineering</p>
+            <a href="mailto:irmakgenc@tedu.edu.tr" class="email-link">irmakgenc@tedu.edu.tr</a>
+          </div>
+          <div class="team-card glass">
+            <div class="team-avatar" style="background: linear-gradient(135deg,#3b82f6,#8b5cf6)">IK</div>
+            <h4>Irem Karahan</h4>
+            <p>Software Engineering</p>
+            <a href="mailto:irem.karahan@tedu.edu.tr" class="email-link">irem.karahan@tedu.edu.tr</a>
+          </div>
+          <div class="team-card glass">
+            <div class="team-avatar" style="background: linear-gradient(135deg,#10b981,#0891b2)">KG</div>
+            <h4>Kerim Gürsoy</h4>
+            <p>Software Engineering</p>
+            <a href="mailto:kerim.gursoy@tedu.edu.tr" class="email-link">kerim.gursoy@tedu.edu.tr</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 SkillSwap Team. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="https://github.com/SkillSwap-Team" target="_blank">GitHub</a>
+    <!-- ===== RIGHT SIDEBAR ===== -->
+    <aside class="sidebar-right">
+
+      <!-- Trending Skills -->
+      <div class="rside-widget">
+        <h3 class="rside-title">🔥 Trending Skills</h3>
+        <ul class="trending-list">
+          <li class="trending-item"><span class="tr-rank">1</span><span class="tr-skill">Python Programming</span><span class="tr-count">43 posts</span></li>
+          <li class="trending-item"><span class="tr-rank">2</span><span class="tr-skill">Guitar Lessons</span><span class="tr-count">38 posts</span></li>
+          <li class="trending-item"><span class="tr-rank">3</span><span class="tr-skill">Graphic Design</span><span class="tr-count">34 posts</span></li>
+          <li class="trending-item"><span class="tr-rank">4</span><span class="tr-skill">Turkish Cooking</span><span class="tr-count">29 posts</span></li>
+          <li class="trending-item"><span class="tr-rank">5</span><span class="tr-skill">Yoga &amp; Wellness</span><span class="tr-count">27 posts</span></li>
+        </ul>
+      </div>
+
+      <!-- Active Members -->
+      <div class="rside-widget">
+        <h3 class="rside-title">👥 Active Now</h3>
+        <div class="active-members-row">
+          <div class="am-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" title="Maria J.">MJ</div>
+          <div class="am-av" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)" title="Tom K.">TK</div>
+          <div class="am-av" style="background:linear-gradient(135deg,#10b981,#0891b2)" title="Sara A.">SA</div>
+          <div class="am-av" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)" title="Kerim G.">KG</div>
+          <div class="am-av" style="background:linear-gradient(135deg,#f43f5e,#f59e0b)" title="Leyla D.">LD</div>
+          <div class="am-av more">+8</div>
         </div>
-    </footer>
+        <p class="am-label">12 people active right now</p>
+      </div>
 
-    <script src="main.js"></script>
+      <!-- Upcoming Events -->
+      <div class="rside-widget">
+        <h3 class="rside-title">📅 Community Events</h3>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date"><span class="ev-day">22</span><span class="ev-month">Feb</span></div>
+            <div class="event-info"><strong>Skill Fair</strong><p>Kızılay Community Center · 14:00</p></div>
+          </div>
+          <div class="event-item">
+            <div class="event-date"><span class="ev-day">01</span><span class="ev-month">Mar</span></div>
+            <div class="event-info"><strong>Coding Workshop</strong><p>TEDU Campus · 10:00</p></div>
+          </div>
+          <div class="event-item">
+            <div class="event-date"><span class="ev-day">08</span><span class="ev-month">Mar</span></div>
+            <div class="event-info"><strong>Swap Meetup #4</strong><p>Tunalı Park · 13:00</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time Bank Leaderboard -->
+      <div class="rside-widget">
+        <h3 class="rside-title">🏆 Time Bank Leaders</h3>
+        <div class="leader-list">
+          <div class="leader-item">
+            <span class="leader-rank gold">🥇</span>
+            <div class="leader-av" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">KG</div>
+            <div class="leader-info"><strong>Kerim G.</strong><span>20h banked</span></div>
+          </div>
+          <div class="leader-item">
+            <span class="leader-rank silver">🥈</span>
+            <div class="leader-av" style="background:linear-gradient(135deg,#10b981,#0891b2)">SA</div>
+            <div class="leader-info"><strong>Sara A.</strong><span>15h banked</span></div>
+          </div>
+          <div class="leader-item">
+            <span class="leader-rank bronze">🥉</span>
+            <div class="leader-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">MJ</div>
+            <div class="leader-info"><strong>Maria J.</strong><span>12h banked</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="rside-widget quick-links">
+        <h3 class="rside-title">🔗 Quick Links</h3>
+        <div class="qlink-grid">
+          <a href="#" class="qlink">About</a>
+          <a href="#" class="qlink">Features</a>
+          <a href="#" class="qlink">Privacy</a>
+          <a href="#" class="qlink">Contact</a>
+          <a href="https://github.com/SkillSwap-Team" class="qlink">GitHub</a>
+          <a href="#" class="qlink">Docs</a>
+        </div>
+        <p class="rside-footer-text">© 2026 SkillSwap Team · TEDU</p>
+      </div>
+
+    </aside>
+
+  </div><!-- /app-layout -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#" class="logo footer-logo">Skill<span>Swap</span></a>
+      <p>Building community connections, one skill at a time.</p>
+      <div class="footer-links">
+        <a href="#feed">Feed</a>
+        <a href="#skills">Skills</a>
+        <a href="#timebank">Time Bank</a>
+        <a href="#community">Community</a>
+        <a href="#team">Team</a>
+        <a href="https://github.com/SkillSwap-Team">GitHub ↗</a>
+      </div>
+      <p class="footer-copy">© 2026 SkillSwap Team. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
-
 </html>
